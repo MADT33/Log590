@@ -1,0 +1,90 @@
+<mvc:View controllerName="ypf.tkcargatrenescarbon.controller.View"
+xmlns:core="sap.ui.core" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns:layout="sap.ui.layout" 
+xmlns:semantic="sap.f.semantic" 
+xmlns="sap.m" 
+xmlns:u="sap.ui.unified"	
+xmlns:fb="sap.ui.comp.filterbar" 
+xmlns:l="sap.ui.layout" 
+xmlns:html="http://www.w3.org/1999/xhtml">
+
+
+   <Page id="idPage" showNavButton="true" navButtonPress="onBack" title="{i18n>title}"
+		 enableScrolling="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
+        
+		<Panel width="auto" class="sapUiResponsiveMargin" >
+			<headerToolbar>
+			<OverflowToolbar>
+                <HBox alignContent="Center" alignItems="Center" width="73rem" justifyContent="End">				
+                <Button id="BTN2" text="{i18n>Confirmar}" enabled="false" type="Emphasized" icon="sap-icon://accept" press="onConfirmar"/>
+                </HBox>
+			</OverflowToolbar>
+		</headerToolbar>
+		
+				
+			<Table id="idTable" type="MultiSelect" items="{ path:'AppJsonModel>/Log' }" busyIndicatorDelay="0" 
+				growing="true" growingScrollToLoad="true" width="auto"  growingThreshold="7">
+				<infoToolbar>
+					<OverflowToolbar id="Overflow">
+						<Label id="idLabelRegistros"/>
+					</OverflowToolbar>
+				</infoToolbar>
+				<columns>
+					<Column  hAlign="Center">
+						<Text text="{i18n>NumExtFich}"/>
+					</Column>
+                    <Column  hAlign="Center">
+						<Text text="{i18n>Nºdoc.planif}" width="6rem"/>
+					</Column>
+                    <Column  hAlign="Center">
+						<Text text="{i18n>PosClvDocPl}" width="6rem"/>
+					</Column>  
+					<Column  hAlign="Center">
+						<Text text="{i18n>Cantidad_Neta}" width="6rem"/>
+					</Column>    
+                			
+					<Column  hAlign="Center" width="10rem">
+						<Text text="{i18n>Fecha_Final}"/>
+					</Column>
+					<Column  hAlign="Center">
+						<Text text="{i18n>Patente_del_Vagon}" width="10rem"/>
+					</Column>
+					<Column  hAlign="Center">
+						<Text text="{i18n>Status}" width="10rem"/>
+					</Column>
+						<Column  hAlign="Center">
+						<Text text="{i18n>Tk}"/>
+					</Column>
+					<Column  hAlign="Center">
+						<Text text="{i18n>Mensaje}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{AppJsonModel>NumExtFich}"/>
+							<Text text="{AppJsonModel>NumDocPlanif}"/>
+							<Text text="{AppJsonModel>PosClvDocPl}"/>	
+							<Text text="{AppJsonModel>CantidadNeta}"/>																	
+                            <Text text="{AppJsonModel>FechaFinal}"/>
+							<Text text="{AppJsonModel>PatenteVagon}"/>
+							<Text text="{AppJsonModel>Status}"/>
+							<Text text="{AppJsonModel>Ticket}"/>
+							<Text text="{AppJsonModel>Mensaje}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>			
+		</Panel>
+		<footer>
+			<OverflowToolbar id="Over">
+				<ToolbarSpacer/>
+				<u:FileUploader id="fileUploader" style="Emphasized" name="myFileUpload" buttonOnly="true" change="onUploadFile" buttonText="{i18n>upload}"
+					icon="sap-icon://upload"/>
+				
+				
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>
